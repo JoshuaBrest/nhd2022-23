@@ -1,6 +1,9 @@
 name: Github Pages Workflow
 run-name: Github Sites Update ${{ github.sha }} by ${{ github.actor }}
-on: [push]
+on:
+    push:
+        branches:
+            - master
 permissions:
     contents: read
     pages: write

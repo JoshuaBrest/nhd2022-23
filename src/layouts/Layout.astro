@@ -92,6 +92,17 @@ const imageUrl = image ? assetUrl + image : null;
                 @apply bg-gray-50 dark:bg-gray-900;
             }
         </style>
+        <style lang="scss" is:global>
+/* Try to fix NHD ugly css */
+// Needs to be more specific than the default
+:root {
+    .container {
+        max-width: 100%;
+        width: 100%;
+        padding: 0;
+    }
+}
+        </style>
         <style
             set:html={`/*__INLINE__CSS__PREVENT__REMOVAL__*/
 @font-face {

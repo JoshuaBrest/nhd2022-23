@@ -98,7 +98,7 @@ const main = async () => {
     // Upload all assets
     loader.start('Uploading new assets');
 
-    const replacementMap = {};
+    const replacementMap = new Map();
 
     await Promise.all(
         uploadedFolder.map(async (file) => {
@@ -114,8 +114,7 @@ const main = async () => {
             });
 
             // Add to replacement map
-            // Should not matter if the filename is a prototype injection because we are prefixing it with '/uploaded/'
-            if (replacementMap[xmlEscape('/uploaded/' + data.name)]) {
+            if (replacementMap.get(xmlEscape('/uploaded/' + file.name))) {
                 loader.warn(
                     'Duplicate file detected: ' +
                         file.name +
@@ -123,9 +122,9 @@ const main = async () => {
                         data.name
                 );
             }
-            replacementMap[xmlEscape('/uploaded/' + file.name)] = xmlEscape(
+            replacementMap.set(xmlEscape('/uploaded/' + file.name), xmlEscape(
                 '/uploaded/' + data.name
-            );
+            ));
         })
     );
 
@@ -194,9 +193,10 @@ const main = async () => {
             let pageData = page.pageData;
 
             // Loop through replacement map
-            for (const [key, value] of Object.entries(replacementMap)) {
+            for (const [key, value] of replacementMap.entries()) {
                 pageData = pageData.replace(key, value);
             }
+            
 
             // Update page
             return await updatePageHTML(

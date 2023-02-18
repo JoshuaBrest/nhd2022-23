@@ -5,8 +5,6 @@ import ora from 'ora';
 import chalk from 'chalk';
 import dotenv from 'dotenv';
 
-const RESTRICTED_NAMES = ['__proto__', 'prototype', 'constructor'];
-
 dotenv.config();
 
 export const loader = ora();
@@ -53,17 +51,15 @@ export const getRes = (response) => {
 };
 
 const parseCookies = (cookies) => {
-    const obj = {};
+    const map = new Map();
 
     setCookie
         .parse(cookies, { decodeValues: true, silent: true })
         .forEach((cookie) => {
-            if (!RESTRICTED_NAMES.includes(cookie.name)) {
-                obj[cookie.name] = cookie.value;
-            }
+            map.set(cookie.name, cookie.value);
         });
 
-    return obj;
+    return map;
 };
 
 export const getReqToken = async (token, pageName, useSite = false) => {
@@ -120,7 +116,7 @@ const getInitialPageItems = async () => {
     }
 
     return {
-        portalSession: parsedCookies['portal-session'],
+        portalSession: parsedCookies.get('portalSession') ?? null,
         csrfToken
     };
 };
