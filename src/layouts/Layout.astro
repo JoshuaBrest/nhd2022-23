@@ -1,0 +1,233 @@
+---
+import { Header } from './Header';
+import { NavButtons } from './NavButtons';
+import { config } from '../utils/config';
+import { Link } from '../components/Link';
+import { env } from '../utils/env';
+
+const { baseUrl, assetUrl, author } = config;
+
+const ROOT_SITE = 'https://site.nhd.org';
+
+type Placement = 'top' | 'bottom' | 'left' | 'right' | 'center';
+
+interface PlacementStyles {
+    top: string;
+    bottom: string;
+    left: string;
+    right: string;
+    center: string;
+}
+
+const placementStyles: PlacementStyles = {
+    top: 'bg-top',
+    bottom: 'bg-bottom',
+    left: 'bg-left',
+    right: 'bg-right',
+    center: 'bg-center'
+};
+
+export interface Props {
+    title: string;
+    description: string;
+    keywords: string;
+    path: string;
+    image?: string;
+    imageCaption?: string;
+    imagePlacement?: Placement;
+}
+
+const {
+    title,
+    description,
+    keywords,
+    path,
+    image,
+    imageCaption,
+    imagePlacement = 'center'
+} = Astro.props;
+
+const siteUrl = baseUrl + path;
+const imageUrl = image ? assetUrl + image : null;
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width' />
+        <link
+            rel='icon'
+            type='image/svg+xml'
+            href={assetUrl + '/favicon.svg'}
+        />
+        <meta name='generator' content={Astro.generator} />
+
+        <!-- Standard Meta Tags -->
+        <title>{title}</title>
+        <meta name='description' content={description} />
+        <meta name='keywords' content={keywords} />
+        <meta name='author' content={author} />
+
+        <!-- Open Graph / Facebook -->
+        <meta name='og:type' content='website' />
+        <meta name='og:url' content={ROOT_SITE + siteUrl} />
+        <meta name='og:title' content={title} />
+        <meta name='og:description' content={description} />
+        {imageUrl && <meta name='og:image' content={imageUrl} />}
+
+        <!-- Twitter -->
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:url' content={ROOT_SITE + siteUrl} />
+        <meta name='twitter:title' content={title} />
+        <meta name='twitter:description' content={description} />
+        {imageUrl && <meta name='twitter:image' content={imageUrl} />}
+
+        <style is:global>
+            :root,
+            body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                @apply bg-gray-50 dark:bg-gray-900;
+            }
+        </style>
+        <style
+            set:html={`/*__INLINE__CSS__PREVENT__REMOVAL__*/
+@font-face {
+    font-family: "source-sans";
+    font-style: normal;
+    src: url("${assetUrl}source-sans-regular.ttf");
+}
+@font-face {
+    font-family: "source-sans";
+    font-style: italic;
+    src: url("${assetUrl}source-sans-italic.ttf");
+}
+@font-face {
+    font-family: "rubik-eighties-fade";
+    font-weight: 700;
+    src: url("${assetUrl}rubik-eighties-fade.ttf");
+}
+`}
+        ></style>
+    </head>
+    <body>
+        <main
+            class='m-0 h-full w-full bg-gray-50 font-source-sans text-black dark:bg-gray-900 dark:text-white'
+        >
+            <div
+                class='sticky top-2 left-2 z-50 h-0 w-0 select-none overflow-visible'
+            >
+                <a
+                    href='#pgint-pagecontent'
+                    id='skip-nav'
+                    class='pointer-events-none flex w-max rounded-md border-2 border-gray-200 bg-gray-100 p-3 pr-4 pl-4 opacity-0 shadow-xl transition-all focus:opacity-100 dark:border-gray-700 dark:bg-gray-800'
+                >
+                    Skip to content
+                </a>
+            </div>
+            <Header />
+            <div class='w-full'>
+                <article
+                    class='flex w-full flex-col items-center justify-center'
+                    id='pgint-pagecontent'
+                >
+                    <div class='h-64 w-full'>
+                        <div
+                            class='absolute z-10 flex h-64 w-full items-center justify-center overflow-hidden bg-gray-50/40 p-5 dark:bg-gray-900/40'
+                        >
+                            <div
+                                class='flex h-full w-full max-w-3xl flex-col overflow-hidden'
+                            >
+                                <div
+                                    class='flex w-full flex-grow items-start justify-end'
+                                >
+                                    {
+                                        imageCaption && (
+                                            <div class='text-sm text-gray-900 dark:text-gray-50'>
+                                                {imageCaption}
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                                <div>
+                                    <h1
+                                        id='title'
+                                        class='text-ellipsis pt-2 pb-5 font-rubik-eighties-fade text-5xl font-bold'
+                                    >
+                                        {title}
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            aria-hidden='true'
+                            class={(imageUrl
+                                ? ''
+                                : 'bg-accent-200 dark:bg-accent-700 ') +
+                                placementStyles[imagePlacement] +
+                                ' w-full h-full bg-no-repeat bg-cover gradient-mask-b-0'}
+                            style={imageUrl
+                                ? {
+                                      backgroundImage: `url("${imageUrl}")`
+                                  }
+                                : {}}
+                        >
+                        </div>
+                    </div>
+                    <div class='w-full max-w-3xl p-5'>
+                        {
+                            env.target === 'nhd' ? (
+                                <div
+                                    id='__site__js__warning'
+                                    class='flex w-full gap-5 rounded-md border-2 border-yellow-200 bg-yellow-100 p-5 dark:border-yellow-700 dark:bg-yellow-900'
+                                >
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        viewBox='0 96 960 960'
+                                        class='h-12 w-12 fill-yellow-500'
+                                    >
+                                        <path d='M92 936q-9 0-15.652-4.125Q69.696 927.75 66 921q-4.167-6.6-4.583-14.3Q61 899 66 891l388-670q5-8 11.5-11.5T480 206q8 0 14.5 3.5T506 221l388 670q5 8 4.583 15.7-.416 7.7-4.583 14.3-3.696 6.75-10.348 10.875Q877 936 868 936H92Zm392.175-117q12.825 0 21.325-8.675 8.5-8.676 8.5-21.5 0-12.825-8.675-21.325-8.676-8.5-21.5-8.5-12.825 0-21.325 8.675-8.5 8.676-8.5 21.5 0 12.825 8.675 21.325 8.676 8.5 21.5 8.5Zm0-111q12.825 0 21.325-8.625T514 678V514q0-12.75-8.675-21.375-8.676-8.625-21.5-8.625-12.825 0-21.325 8.625T454 514v164q0 12.75 8.675 21.375 8.676 8.625 21.5 8.625Z' />
+                                    </svg>
+                                    <div class='flex flex-col'>
+                                        <span class='select-none text-sm font-bold uppercase text-yellow-100'>
+                                            Warning
+                                        </span>
+                                        <p class='text-yellow-50'>
+                                            JavaScript is disabled. If running
+                                            on NHD Web Central, the navigaation
+                                            bar will not work properly. The rest
+                                            of the site should work fine. If you
+                                            want to view the site with the
+                                            navigation bar, please go to{' '}
+                                            <Link
+                                                className='text-yellow-700 underline hover:text-yellow-600 dark:text-yellow-100 dark:hover:text-yellow-200'
+                                                href={env.ghLiveUrl}
+                                            >
+                                                this site
+                                            </Link>
+                                            .
+                                        </p>
+                                    </div>
+                                </div>
+                            ) : null
+                        }
+                        <img
+                            class='pointer-events-none absolute hidden'
+                            src='https://blackhole.example'
+                            onerror='/* Hide js warning */(function(){try{document.getElementById("__site__js__warning").remove()}catch{}})()'
+                        />
+                        <slot />
+                    </div>
+                </article>
+            </div>
+            <NavButtons page={path} />
+            <img
+                class='pointer-events-none absolute hidden'
+                src='https://blackhole.example'
+                onerror='/* Delete all scripts and load tailwind */(function(){const blacklist=["bootstrap","bootstrapcdn","basesite.css","base.css"];const checkBlacklist=function(name){for(const item of blacklist){if(name.includes(item)){return false;}}return true;};if(location.pathname.toLowerCase()==="/edit"||location.hostname.toLowerCase() === "localhost"){return;}document.querySelectorAll("link").forEach(function(ele){if(!ele.href.includes("uploaded")&&!checkBlacklist(ele.href)){ele.remove();}})})()'
+            />
+        </main>
+    </body>
+</html>

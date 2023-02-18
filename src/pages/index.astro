@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Text } from '../components/Text';
+import { Link } from '../components/Link';
+
+import { config } from '../utils/config';
+---
+
+<Layout
+    title='Redirecting'
+    description='Redirecting to the home page.'
+    keywords=''
+    path=''
+    image='enigma-buisness-edition-unsplash.jpeg'
+    imageCaption='A photo of a buisness edition enigma machine, Unsplash (Mauro Sbicego), October 30, 2019'
+>
+    <Text type='section'>
+        <Text type='h2'>Redirecting...</Text>
+        <Text type='p'>
+            If you are not redirected automatically, please click <Link
+                href={config.baseUrl + 'home'}
+            >
+                here
+            </Link>.
+        </Text>
+        <img
+            class='pointer-events-none absolute hidden'
+            src='https://blackhole.example'
+            onerror={`/* Redirect */(function(){location.replace(${JSON.stringify(
+                config.baseUrl + 'home'
+            )});})()`}
+        />
+    </Text>
+</Layout>

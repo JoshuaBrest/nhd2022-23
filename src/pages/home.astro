@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Text } from '../components/Text';
+import { Figcaption } from '../components/Figcaption';
+---
+
+<Layout
+    title='Home'
+    description='The first type of asymmetrical encryption was created in 1973 at Government Communications Headquaters (GHCQ) then redisovered by Ron Rivest, Adi Shamir, and Leonard Adleman in 1977 and named RSA.'
+    keywords=''
+    path='home'
+    image='enigma-buisness-edition-unsplash.jpeg'
+    imageCaption='A photo of a buisness edition enigma machine, Unsplash (Mauro Sbicego), October 30, 2019'
+>
+    <Text type='section'>
+        <Figcaption
+            src='enigma-buisness-edition-unsplash.jpeg'
+            alt='A buisness edition enigma machine encased in a glass case in a museum'
+            caption='A photo of a buisness edition enigma machine, Unsplash (Mauro Sbicego), October 30, 2019'
+            float='left'
+        />
+        <Text type='h2'>The Inovation of asymetric encryption</Text>
+        <Text type='p'>
+            <b>Joshua Brest, Jonathan O'Donnell, Tim (Xingyu) Xiang</b>
+        </Text>
+        <Text type='p'>Junior Division</Text>
+        <Text type='p'>Group Website</Text>
+        <Text type='p'>Website Word Count: Not yet calculated</Text>
+        <Text type='p'>Process Paper Word Count: Not yet calculated</Text>
+        <Text type='p'>Media Count: 0:00</Text>
+    </Text>
+</Layout>

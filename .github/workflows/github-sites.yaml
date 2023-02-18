@@ -1,0 +1,47 @@
+name: Github Pages Workflow
+run-name: Github Sites Update ${{ github.sha }} by ${{ github.actor }}
+on: [push]
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+concurrency:
+    group: 'pages'
+    cancel-in-progress: true
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        env:
+            IS_NHD_TARGET: false
+            GH_OWNER: ${{ secrets.GH_OWNER }}
+            GH_REPO: ${{ secrets.GH_REPO }}
+        steps:
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 19
+            - name: Get latest code
+              uses: actions/checkout@v2
+              # Requires node@19.x.x and yarn@1.x.x
+            - name: Install dependencies
+              run: yarn install
+            - name: Create siteEnv
+              run: yarn run site-env
+            - name: Create attrabution file
+              run: yarn run attributions
+            - name: Create GH Pages build
+              run: yarn run build
+            - name: Upload Pages Artifact
+              uses: actions/upload-pages-artifact@v1
+              with:
+                  name: github-pages
+                  path: dist/
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v1

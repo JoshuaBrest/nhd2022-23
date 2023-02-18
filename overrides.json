@@ -1,0 +1,20 @@
+{
+    "adobe-fonts/source-sans": {
+        "name": "Adobe Source Sans 3",
+        "version": "3.046",
+        "url": "https://github.com/adobe-fonts/source-sans",
+        "license": "OFL-1.1"
+    },
+    "NaN-xyz/Rubik-Filtered": {
+        "name": "Rubik Filtered",
+        "version": "1.0",
+        "url": "https://github.com/NaN-xyz/Rubik-Filtered",
+        "license": "OFL-1.1"
+    },
+    "google/material-design-icons": {
+        "name": "Material Design Icons",
+        "version": "4.0.0",
+        "url": "https://github.com/google/material-design-icons",
+        "license": "Apache-2.0"
+    }
+}

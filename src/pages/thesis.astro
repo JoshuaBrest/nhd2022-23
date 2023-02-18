@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Text } from '../components/Text';
+import { Figcaption } from '../components/Figcaption';
+---
+
+<Layout
+    title='Thesis'
+    description='The first type of asymmetrical encryption was created in 1973 at Government Communications Headquaters (GHCQ) then redisovered by Ron Rivest, Adi Shamir, and Leonard Adleman in 1977 and named RSA.'
+    keywords=''
+    path='thesis'
+    image='ron-adi-leonard-rsa-discover.jpeg'
+    imageCaption='Ron Rivest, Adi Shamir, and Leonard Adleman, University of Southern California, c.1977'
+    imagePlacement='top'
+>
+    <Text type='section'>
+        <Figcaption
+            src='ron-adi-leonard-rsa-discover.jpeg'
+            alt='Ron Rivest, Adi Shamir, and Leonard Adleman in a classroom'
+            caption='Ron Rivest, Adi Shamir, and Leonard Adleman, University of Southern California, c.1977'
+            float='right'
+        />
+        <Text type='p'>
+            Encryption is the process of encoding a message using a key to
+            protect it from being read by unauthorized parties. Standard
+            encryption uses a single key to encrypt and decrypt the message
+            which is called symmetric encryption. However, in the case of
+            public-private key encryption, one key named the public key is used
+            to encrypt the message, and another key named the private key is
+            used to decrypt the message. Thus, public-private key encryption.
+        </Text>
+        <Text type='p'>
+            Mathematically, the public key can be derived from the private key
+            very easily, however, the private key is much less impossible to
+            derive from the public key. This makes it such that the public key
+            can be shared with anyone without compromising the security of the
+            private key. Once the public key gets shared, anyone can encrypt a
+            message using the public key and send it to the recipient and only
+            the recipient can decrypt the message using their private key.
+            Clifford Cocks was the first to create a public-private key
+            encryption system in 1973 at Government Communications Headquarters
+            (GCHQ). However, the method that he discovered was classified until
+            1977 when three researchers at the University of Southern California
+            discovered it and named it RSA. They were called Ron Rivest, Adi
+            Shamir, and Leonard Adleman. RSA is and continues to be one of the
+            most influential inventions in today's world. It created a new
+            frontier in the field of cryptography along with changing how the
+            world obtains information, communicates, and protects its data. Not
+            only from prying eyes but also from the government.
+        </Text>
+    </Text>
+</Layout>

@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Text } from '../components/Text';
+import { Quotecaption } from '../components/Quotecaption';
+---
+
+<Layout
+    title='History of Encryption'
+    description='Some histoical context and examples'
+    keywords='Historical Context,historical Context,Historical context,historical context,Context,context'
+    path='history-of-encryption'
+    image='enigma-rotors-dissected.jpeg'
+    imageCaption='Enigma rotors and spindle showing contacts rachet and notch, TedColes via Wikimedia Commons, 22 July 2011'
+>
+    <Text type='section'>
+        <Quotecaption
+            quote='The history of cryptography is the history of war.'
+            citation='Ron Rivest'
+            float='right'
+        />
+        <Text type='p'>
+            There are countless encryption-related historical events. One
+            example is the attempted assassination of Queen Elizabeth I
+            (Babington Plot). This, however, failed because of poor encryption
+            on the end of the Mary I of Scotland, who got sentenced to death
+            because of this. Poor encryption changed the course of history.
+            addition, encryption is extremely important in wars. Military
+            personnel need to be commanded, and preferably without foreign
+            intelligence knowing what they are doing. One example of this was
+            the German U-boats during World War II. The reason U-boats were so
+            successful, was because they were unexpected, and the allies didn't
+            know where the U-boats were. When it was cracked and the allies knew
+            where the U-boats were, it was much, much less effective. If
+            asymmetric encryption existed during these times, Queen Elizabeth I
+            could have died and the Germans could have won!
+        </Text>
+    </Text>
+</Layout>

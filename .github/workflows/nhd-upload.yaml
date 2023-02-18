@@ -1,0 +1,35 @@
+name: NHD Site Upload Workflow
+run-name: Website Update ${{ github.sha }} by ${{ github.actor }}
+# Only update if the main branch is updated
+on:
+    push:
+        branches:
+            - master
+jobs:
+    NHD-Upload:
+        runs-on: ubuntu-latest
+        env:
+            IS_NHD_TARGET: true
+            SITE_URL: ${{ secrets.SITE_URL }}
+            GH_OWNER: ${{ secrets.GH_OWNER }}
+            GH_REPO: ${{ secrets.GH_REPO }}
+            NHD_USERNAME: ${{ secrets.NHD_USERNAME }}
+            NHD_PASSWORD: ${{ secrets.NHD_PASSWORD }}
+
+        steps:
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 19
+            - name: Get latest code
+              uses: actions/checkout@v2
+              # Requires node@19.x.x and yarn@1.x.x
+            - name: Install dependencies
+              run: yarn install
+            - name: Create siteEnv
+              run: yarn run site-env
+            - name: Create attrabution file
+              run: yarn run attributions
+            - name: Create NHD build
+              run: yarn run build
+            - name: Upload to NHD
+              run: yarn run upload --use-env-auth-pair
