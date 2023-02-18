@@ -96,9 +96,9 @@ const imageUrl = image ? assetUrl + image : null;
 /* Try to fix NHD ugly css */
 /* Needs to be more specific than the NHD css */
 :root > .container {
-    max-width: 100%;
-    width: 100%;
-    padding: 0;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
 }
         </style>
         <style
@@ -204,19 +204,16 @@ const imageUrl = image ? assetUrl + image : null;
                                             Warning
                                         </span>
                                         <p class='text-yellow-50'>
-                                            JavaScript is disabled. If running
-                                            on NHD Web Central, the navigaation
-                                            bar will not work properly. The rest
-                                            of the site should work fine. If you
-                                            want to view the site with the
-                                            navigation bar, please go to{' '}
+                                            JavaScript is disabled. This page is running
+                                            on NHD Web Central. The webpage might look odd although it should work fine. If you
+                                            want to view the site working, enable JavaScript or please go to{' '}
                                             <Link
                                                 className='text-yellow-700 underline hover:text-yellow-600 dark:text-yellow-100 dark:hover:text-yellow-200'
                                                 href={env.ghLiveUrl}
                                             >
                                                 this site
                                             </Link>
-                                            .
+                                            . <b>This is not counted in the word count.</b>
                                         </p>
                                     </div>
                                 </div>
