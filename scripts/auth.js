@@ -111,12 +111,12 @@ const getInitialPageItems = async () => {
         throwError('Could not find CSRF Token');
     }
 
-    if (!parsedCookies['portal-session']) {
+    if (!parsedCookies.get('portalSession')) {
         throwError('Could not find portal-session cookie');
     }
 
     return {
-        portalSession: parsedCookies.get('portalSession') ?? null,
+        portalSession: parsedCookies.get('portalSession'),
         csrfToken
     };
 };
