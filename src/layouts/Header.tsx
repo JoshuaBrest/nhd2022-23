@@ -73,7 +73,7 @@ export const Header = () => {
                                             <Popover
                                                 anchor='right'
                                                 origin='top-right'
-                                                className='mt-4 focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus:pointer-events-auto focus:scale-100 focus:opacity-100 peer-focus:pointer-events-auto peer-focus:scale-100 peer-focus:opacity-100'
+                                                className='pt-4 focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus:pointer-events-auto focus:scale-100 focus:opacity-100 peer-focus:pointer-events-auto peer-focus:scale-100 peer-focus:opacity-100 peer-hover:pointer-events-auto peer-hover:scale-100 peer-hover:opacity-100 hover:pointer-events-auto hover:scale-100 hover:opacity-100'
                                                 parrentId={
                                                     'pgint-header-dynamic-' +
                                                     key
@@ -126,7 +126,7 @@ export const Header = () => {
                             <Popover
                                 anchor='right'
                                 origin='top-right'
-                                className='mt-4 gap-2 focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus:pointer-events-auto focus:scale-100 focus:opacity-100 peer-focus:pointer-events-auto peer-focus:scale-100 peer-focus:opacity-100'
+                                className='pt-2 gap-2 focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus:pointer-events-auto focus:scale-100 focus:opacity-100 peer-focus:pointer-events-auto peer-focus:scale-100 peer-focus:opacity-100 peer-hover:pointer-events-auto peer-hover:scale-100 peer-hover:opacity-100 hover:pointer-events-auto hover:scale-100 hover:opacity-100'
                                 parrentId='pgint-header-mobile-hamburger'
                                 boxName='Hamburger'
                             >

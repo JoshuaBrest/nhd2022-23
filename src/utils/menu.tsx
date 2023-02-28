@@ -7,12 +7,17 @@ export const menuLinks: (Link | SubMenu)[] = [
         hideMenubar: true
     },
     {
-        name: 'Thesis',
-        url: 'thesis'
-    },
-    {
-        name: 'History of Encryption',
-        url: 'history-of-encryption'
+        name: 'Background',
+        links: [
+            {
+                name: 'Thesis',
+                url: 'thesis'
+            },
+            {
+                name: 'History of Encryption',
+                url: 'history-of-encryption'
+            }
+        ]
     },
     {
         name: 'What Encryption Does?',
@@ -32,8 +37,17 @@ export const menuLinks: (Link | SubMenu)[] = [
         ]
     },
     {
-        name: 'Harms of Encryption',
-        url: 'counterclaim'
+        name: 'Harms and Future',
+        links: [
+            {
+                name: 'Harms of Encryption',
+                url: 'counterclaim'
+            },
+            {
+                name: 'Future of Encryption',
+                url: 'future'
+            }
+        ]   
     },
     {
         name: 'Other',
@@ -46,11 +60,6 @@ export const menuLinks: (Link | SubMenu)[] = [
             {
                 name: 'Works Cited',
                 url: 'uploaded/works-cited.pdf',
-                hideNavigate: true
-            },
-            {
-                name: 'Attributions',
-                url: 'attributions',
                 hideNavigate: true
             }
         ]

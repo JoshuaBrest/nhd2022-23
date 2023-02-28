@@ -53,19 +53,21 @@ export const Popover = ({
     boxName?: string;
 }) => {
     return (
-        <ul
-            className={
-                'origin max-h-84 pointer-events-none absolute z-10 flex w-64 scale-75 list-none flex-col overflow-scroll rounded-md border-2 border-gray-200 bg-gray-100 pt-1 pb-1 opacity-0 shadow-xl backdrop-blur-md transition-all will-change-transform dark:border-gray-700 dark:bg-gray-800 ' +
-                originMap[origin] +
-                ' ' +
-                anchorMap[anchor] +
-                ' ' +
-                className
-            }
-            aria-label={boxName ? boxName : 'popover'}
-            id={parrentId + '-popover'}
-        >
-            {children}
-        </ul>
+        <div className={
+            'transition-all will-change-transform pointer-events-none w-64 scale-75 flex absolute z-10 opacity-0 ' +
+            originMap[origin] +
+            ' ' +
+            anchorMap[anchor] +
+            ' ' +
+            className
+        }>
+            <ul
+                className='w-full max-h-84 flex list-none flex-col overflow-scroll rounded-md border-2 border-gray-200 bg-gray-100 pt-1 pb-1 shadow-xl dark:border-gray-700 dark:bg-gray-800 '
+                aria-label={boxName ? boxName : 'popover'}
+                id={parrentId + '-popover'}
+            >
+                {children}
+            </ul>
+        </div>
     );
 };
