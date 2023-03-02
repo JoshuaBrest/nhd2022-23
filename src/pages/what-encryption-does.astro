@@ -1,17 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Text } from '../components/Text';
+import { Figcaption } from '../components/Figcaption';
 ---
 
 <Layout
-    title='What encryption does'
-    description='Encryptions aid with privacy'
+    title='Communicating With Encryption'
+    description='Encryptions aids privacy.'
     keywords='Privacy,privacy,User privacy,user privacy'
     path='what-encryption-does'
+    image='coder-default-bg.jpeg'
+    imageCaption='Image of a Programer, Jefferson Santos, November 17th 2017'
 >
     <Text type='section'>
+        <Figcaption
+            src='public-private-key-exchange.jpeg'
+            alt='A diagram of a public key encryption system.'
+            caption='Public Key Shared Secret, Davidgothberg (Public domain via Wikimedia Commons), August 7th 2006'
+            float='left'
+        />
         <Text type='p'>
-            {`The Jewish bible. One of the oldest religious books dating from the eleventh or the tenth BCE. Mostly known and called The Tanakh (commonly known as). The Tanakh includes so-called atbash code. The name atbash refers to the name of these Hebrew characters: alef, taw, bet and shin. Though instances of the atbash code found in the Book of Jeremiah. During the Babington Plot in 1586, Mary (who assisted by helping to restore the Roman Catholic Religion) sent 100 or more ciphers to Babington explaining she wanted the help of France and Spain to help her become queen of England. However, her letter was intercepted by Elizabeth’s spy, Sir Francis Walsingham. During the ages of World War I and II encryption was used both by the allies and the Axis. In WWI encryption was used for high-command and diplomatic talks. During WW2 the use of encryption was used both by the Axis and the Allies. Axis did manage to have the upper hand during the first years of the war. Though the allies managed to get the upper hand in encryption when the Polish and the British were able to crack the German Encryption.`}
+            {`Public keys enable people all around the world to access secure and credible information anywhere with an internet connection. At this time of age, all the information is accessible on the internet. However, a secure connection must be established before viewing information on a website. "A Graduate Course in Applied Cryptography" states that unencrypted websites are incredibly vulnerable to cyber attacks, such as man-in-the-middle attacks and packet sniffing. This puts the user's data, such as credit card credentials, at risk and sometimes even results in compromised devices. If users were constantly put at risk because of poor encryption ont he internet users would not rely on it as much.  In addition, websites that are not secure and do not have encryption often have vulnerabilities that can be exploited to alter the data on them. This can also be done to the user using "man in the middle" attacks, where hackers can change how the website looks to the user. This will significantly damage the credibility of even the most trustworthy website. However, the public key encryption system ensures the safety of these websites by using SSL certificates. These are signed and locked with a key that is kept secret and uncrackable. It still ensures the user can read the website, while attackers can not alter or hack websites. This could not have been possible without asymmetrical encryption, a frontier for how the general public accesses information.`}
         </Text>
     </Text>
 </Layout>

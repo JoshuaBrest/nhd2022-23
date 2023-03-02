@@ -27,7 +27,7 @@ export const menuLinks: (Link | SubMenu)[] = [
                 url: 'what-encryption-does'
             },
             {
-                name: 'Obtaining Information with Encrytion',
+                name: 'Obtaining Information with Encryption',
                 url: 'information'
             },
             {
@@ -45,7 +45,7 @@ export const menuLinks: (Link | SubMenu)[] = [
             },
             {
                 name: 'Future of Encryption',
-                url: 'futrue'
+                url: 'future'
             },
             {
                 name: 'Overall',

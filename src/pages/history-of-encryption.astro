@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Text } from '../components/Text';
-import { Quotecaption } from '../components/Quotecaption';
+import { Figcaption } from '../components/Figcaption';
 ---
 
 <Layout
@@ -13,13 +13,14 @@ import { Quotecaption } from '../components/Quotecaption';
     imageCaption='Enigma rotors and spindle showing contacts rachet and notch, TedColes via Wikimedia Commons, 22 July 2011'
 >
     <Text type='section'>
-        <Quotecaption
-            quote='The history of cryptography is the history of war.'
-            citation='Ron Rivest'
+        <Figcaption
+            src='atbash-diagram-explainer.jpeg'
+            alt='A diagram of an atbash cipher where an alphabet is reversed and the letters are replaced with their opposites a becomes z, b becomes y, c becomes x, etc.'
+            caption='Atbash cipher diagram, Jesus Najera, April 8th 2019'
             float='right'
         />
         <Text type='p'>
-            {`The Jewish bible. One of the oldest religious books dating from the eleventh or the tenth BCE. Mostly known and called The Tanakh (commonly known as). The Tanakh includes so-called atbash code. The name atbash refers to the name of these Hebrew characters: alef, taw, bet and shin. Though instances of the atbash code found in the Book of Jeremiah. During the Babington Plot in 1586, Mary (who assisted by helping to restore the Roman Catholic Religion) sent 100 or more ciphers to Babington explaining she wanted the help of France and Spain to help her become queen of England. However, her letter was intercepted by Elizabeth’s spy, Sir Francis Walsingham. During the ages of World War I and II encryption was used both by the allies and the Axis. In WWI encryption was used for high-command and diplomatic talks. During WW2 the use of encryption was used both by the Axis and the Allies. Axis did manage to have the upper hand during the first years of the war. Though the allies managed to get the upper hand in encryption when the Polish and the British were able to crack the German Encryption.`}
+            {`The Jewish bible. One of the oldest religious books dating from the eleventh or the tenth BCE. Mostly known and called The Tanakh (commonly known as). The Tanakh includes so-called atbash code. The name atbash refers to the name of these Hebrew characters: alef, taw, bet and shin. Though instances of the atbash code found in the Book of Jeremiah. During the Babington Plot in 1586, Mary (who assisted by helping to restore the Roman Catholic Religion) sent 100 or more ciphers to Babington explaining she wanted the help of France and Spain to help her become queen of England. However, her letter was intercepted by Elizabeth’s spy, Sir Francis Walsingham. During the ages of World War I and II encryption was used both by the allies and the Axis. In WWI encryption was used for high-command and diplomatic talks. During WW2 the use of encryption was used both by the Axis and the Allies. Axis did manage to have the upper hand during the first years of the war. Though the allies managed to get the upper hand in encryption when the Polish and the British were able to crack the German Encryption. Which led to the allies using the now unencrypted German messages and relaying it to every part of the army so they could coordinate an attack.`}
         </Text>
     </Text>
 </Layout>

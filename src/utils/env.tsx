@@ -8,6 +8,6 @@ interface SiteEnv {
 }
 
 export const env: SiteEnv = {
-    target: 'nhd',
-    ghLiveUrl: 'https://joshuabrest.github.io/nhd2022-23'
+    "target": "nhd",
+    "ghLiveUrl": "https://JoshuaBrest.github.io/nhd2022-23"
 };
