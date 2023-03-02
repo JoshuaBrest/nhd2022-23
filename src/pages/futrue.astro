@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Text } from '../components/Text';
+import { Figcaption } from '../components/Figcaption';
+---
+
+<Layout
+    title='The Future: QKD'
+    description='Quantum computers are coming. They will be able to break RSA in a blink of an eye. But there is a way to protect against them. QKD.'
+    keywords='future, technology, science, artificial intelligence, ai, machine learning, ml, deep learning, dl, quantum computing, quantum, cryptography, crypto, blockchain, bitcoin, ethereum, crypto, crypto currency, crypto curre'
+    path='future'
+>
+    <Text type='section'>
+        <Text type='p'>
+            <Figcaption
+                src='BB84-quantum-key-distribution.jpeg'
+                alt='A diagram of BB84 quantum key distribution explaned in the text.'
+                caption='BB84 quantum key distribution (Figure 4), Tajdar Jawaid, March 14 2022'
+                float='right'
+            />
+            {`Quantum computers can crack RSA and most asymmetrical encryption algorithms. But scientists are coming up with new ways to solve this issue. Unlike traditional asymmetrical encryption algorithms, QKD (Quantum Key Exchange) does not use math to protect data, it relies on physics. QKD uses photons to communicate. One feature of photons is, according to Heisenberg's uncertainty principle, only limited amounts of data can be known about a photon, nor can they be cloned. QKD uses this to detect whether there is an eavesdropper. Note: this assumes that the data sent on the public channel between the two peers cannot be modified, otherwise, it would be vulnerable to man in the middle attacks. BB48, a QKD protocol, uses four polarization zero degrees, 45 degrees, 90 degrees, and 135 degrees. If a photon is polarized 90 degrees, it can sometimes pass through a 45-degree polarization. This prevents an eavesdropper from knowing the exact polarization of a given photon.`}
+        </Text>
+        <Text type='p'>
+            {`If an eavesdropper tries to intercept the message, she would have to read the proton. Once that happens, because the proton has been read, it cannot be sent exactly to the target. The eavesdropper would have to guess the intended polarization and create a new photon based on that guess. Once they finish transferring keys, they can compare their results and ignore all the bits where they did not both, using a diagonal or traversal filter, they can ignore. If the protons are all polarized, (zero and 45 degrees as zero and 90 and 135 as one), then because the eavesdropper would be guessing the correct polarization, it would cause the keys to be different thus detecting an eavesdropper. In theory, if an eavesdropper is lucky, they could guess the key. However, in a long key, this is highly unlikely. QKD is slowly becoming a more and more viable option and they are already being tested.`}
+        </Text>
+    </Text>
+</Layout>

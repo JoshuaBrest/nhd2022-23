@@ -37,7 +37,7 @@ export const menuLinks: (Link | SubMenu)[] = [
         ]
     },
     {
-        name: 'Harms and Future',
+        name: 'Harms, Future, and Overall',
         links: [
             {
                 name: 'Harms of Encryption',
@@ -45,7 +45,11 @@ export const menuLinks: (Link | SubMenu)[] = [
             },
             {
                 name: 'Future of Encryption',
-                url: 'future'
+                url: 'futrue'
+            },
+            {
+                name: 'Overall',
+                url: 'conclusion'
             }
         ]   
     },
